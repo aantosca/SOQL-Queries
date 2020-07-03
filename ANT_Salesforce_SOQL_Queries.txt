@@ -1,0 +1,34 @@
+Queries:
+
+All Dev complete Stories from Release Monster 2019 Feb Monthly:
+SELECT id, action__c,  type__c, Manifest_Item_Name__c, notes__c, story__r.lastModifiedDate,  story__r.id, story__r.name, story__r.status__c, createdDate, createdby.ID, createdby.name,story__r.sprint__r.name FROM cmc_manifest_item__c where story__r.sprint__r.name = 'Monster 2019 Feb Monthly' and story__r.status__c = 'Dev Complete' order by story__r.name, createdDate
+
+
+All Dev complete Issues:
+SELECT id, action__c,  type__c, Manifest_Item_Name__c, notes__c, issue__r.story__r.id, issue__r.story__r.name, issue__r.story__r.status__c,  issue__r.id, issue__r.name, issue__r.status__c, issue__r.lastModifiedDate, createdDate, createdby.ID, createdby.name, issue__r.story__r.sprint__r.name FROM cmc_manifest_item__c where Product_Name__c = 'Monster Worldwide Phase 2' and issue__r.status__c = 'Dev Complete' order by issue__r.story__r.name, createdDate
+
+All QA Complete Issues:
+SELECT id, action__c,  type__c, Manifest_Item_Name__c, notes__c, issue__r.story__r.id, issue__r.story__r.name, issue__r.story__r.status__c,  issue__r.id, issue__r.name, issue__r.status__c, issue__r.lastModifiedDate, createdDate, createdby.ID, createdby.name, issue__r.story__r.sprint__r.name FROM cmc_manifest_item__c where Product_Name__c = 'Monster Worldwide Phase 2' and issue__r.status__c = 'QA Complete' order by issue__r.story__r.name, createdDate
+
+All UAT Complete Issues in Monster Point Release 1.04:
+SELECT id, action__c,  type__c, Manifest_Item_Name__c, notes__c, issue__r.story__r.id, issue__r.story__r.name, issue__r.story__r.status__c,  issue__r.id, issue__r.name, issue__r.status__c, issue__r.lastModifiedDate, createdDate, createdby.ID, createdby.name, issue__r.story__r.sprint__r.name FROM cmc_manifest_item__c where CMC_Issue__c.Fixed_In_Sprint__c = 'Monster Point Release 1.04' and Product_Name__c = 'Monster Worldwide Phase 2' and issue__r.status__c = 'QA Complete' order by issue__r.story__r.name, createdDate
+
+
+All QA Complete Stories:
+SELECT id, action__c,  type__c, Manifest_Item_Name__c, notes__c, story__r.lastModifiedDate,  story__r.id, story__r.name, story__r.status__c, createdDate, createdby.ID, createdby.name,story__r.sprint__r.name FROM cmc_manifest_item__c where Product_Name__c = 'Monster Worldwide Phase 2' and story__r.status__c = 'QA Complete' order by story__r.name, createdDate
+
+
+All Issues whose stories are QA Complete:
+SELECT id, action__c,  type__c, Manifest_Item_Name__c, notes__c, issue__r.story__r.id, issue__r.story__r.name, issue__r.story__r.status__c,  issue__r.id, issue__r.name, issue__r.status__c, issue__r.lastModifiedDate, createdDate, createdby.ID, createdby.name, issue__r.story__r.sprint__r.name FROM cmc_manifest_item__c where Product_Name__c = 'Monster Worldwide Phase 2' and  issue__r.story__r.status__c = 'QA Complete' order by issue__r.story__r.name, createdDate
+
+SELECT Id FROM Account WHERE LegacyKarmaId__c in ('1+2R+2401') ORDER BY LegacyKarmaId__c ASC NULLS FIRST
+
+cmc_issue__c.fixed_in_sprint__c = 'Monster Point Release 1.04'
+CMC_Issue__c.Fixed_In_Sprint__c, notes__c
+
+SELECT id, action__c,  type__c, Manifest_Item_Name__c, notes__c, issue__r.story__r.id, issue__r.story__r.name, issue__r.story__r.status__c,  issue__r.id, issue__r.name, issue__r.status__c, issue__r.lastModifiedDate, createdDate, createdby.ID, createdby.name, issue__r.Fixed_In_Sprint__r.name FROM cmc_manifest_item__c where Product_Name__c = 'Monster Worldwide Phase 2' and issue__r.Fixed_In_Sprint__r.name LIKE 'Monster Launch Release .01' and issue__r.status__c = 'Dev Complete' order by issue__r.story__r.name, createdDate
+
+soql query to find all manifest items for a given field:
+SELECT id, createdDate, createdby.name, action__c, Manifest_Item_Name__c, type__c, story__c, Story__r.Sprint__r.Name, story__r.name, issue__c, issue__r.name FROM cmc_manifest_item__c where Manifest_Item_Name__c like '%LockTotalPrice__c%' and Product_Name__c = 'Monster Worldwide Phase 2' order by CreatedDate desc
+just swap in the name of what you are looking for
+between the %%

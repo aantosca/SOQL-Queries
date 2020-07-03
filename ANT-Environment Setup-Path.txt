@@ -1,0 +1,3 @@
+Set Environment:
+•	 USWESMLPAQLF6T6:~ aantosca$ export ANT_HOME=/Users/aantosca/ant
+•	 USWESMLPAQLF6T6:~ aantosca$ export PATH=$PATH:$GRADLE_HOME/bin:$M2_HOME/bin:$ANT_HOME/bin
